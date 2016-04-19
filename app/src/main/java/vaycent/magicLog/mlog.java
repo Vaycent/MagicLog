@@ -1,12 +1,12 @@
 package vaycent.magicLog;
 
-import vaycent.customerApp.UseHelper;
+import vaycent.customerControl.CustomerControlHelper;
 
 /**
  * Created by Vaycent on 2016/4/14.
  */
 public class mlog {
-    private final static int PRINT_LOG_LEVEL= UseHelper.PRINT_LOG_LEVEL;
+    private final static int PRINT_LOG_LEVEL= CustomerControlHelper.PRINT_LOG_LEVEL;
 
     private static String[] stackTraceMessages;
 
