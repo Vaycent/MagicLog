@@ -19,7 +19,7 @@ public class UseHere_02 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.use_here_02);
-
+        //
 
         mlog.v("Test mlog v Hello World!");
         mlog.d("Test mlog d Hello World!");
