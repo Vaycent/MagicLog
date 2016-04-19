@@ -9,6 +9,12 @@ public class LogUtil {
     public final static int TABLE_TOP=0;
     public final static int TABLE_BOTTOM=1;
 
+    public static boolean isNull(Object obj){
+        if(obj==null)
+            return true;
+        return false;
+    }
+
 
     public static void printTable(int tableFram,String[] stackTraceMessages,String xml) {
         String[] tableElements=initTable(tableFram,stackTraceMessages, xml);
