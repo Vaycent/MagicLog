@@ -14,17 +14,16 @@ public class StackTraceMessages {
 
         String className=stackElement.getClassName();
         className=className.substring(className.lastIndexOf(".")+1);
+        String tagName=className;
         className=className+".java";
 
         int lineNumber = stackElement.getLineNumber();
 
         String methodName=stackElement.getMethodName();
-        methodName="---"+methodName+"---";
 
-        String tagMethodName=methodName;
-        String messageHelper="("+className+":"+lineNumber+")";
+        String messageHelper=methodName+"("+className+":"+lineNumber+")";
 
-        String[] stackTraceMessages=new String[]{tagMethodName, messageHelper};
+        String[] stackTraceMessages=new String[]{tagName, messageHelper};
 
         return stackTraceMessages;
     }

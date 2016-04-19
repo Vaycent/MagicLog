@@ -14,7 +14,6 @@ public class UseHere_01 extends AppCompatActivity {
     private static final String XML = "<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?><!--  Copyright w3school.com.cn --><note><to>George</to><from>John</from><heading>Reminder</heading><body>Don't forget the meeting!</body></note>";
     private static final String JSON="\"{\\\"menu\\\":[\\\"泰式柠檬肉片\\\",\\\"鸡柳汉堡\\\",\\\"蒸桂鱼卷 \\\"],\\\"tag\\\":\\\"其他\\\"}\"";
 
-    private LogFile logFile=new LogFile();
 
     private Button go_btn;
     @Override
@@ -35,15 +34,14 @@ public class UseHere_01 extends AppCompatActivity {
 
         mlog.json(JSON);
 
+        LogFile.getInstance(this).start();
 
-        logFile.start();
 
 
         go_btn=(Button)findViewById(R.id.go_btn);
         go_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View arg0) {
-                // TODO Auto-generated method stub
                 Intent intent = new Intent();
                 intent.setClass(UseHere_01.this, UseHere_02.class);
                 startActivity(intent);
@@ -53,7 +51,7 @@ public class UseHere_01 extends AppCompatActivity {
 
     @Override
     protected void onDestroy(){
-        logFile.stop();
+        LogFile.getInstance(this).stop();
         super.onDestroy();
     }
 

@@ -1,16 +1,18 @@
 package vaycent.magicLog;
 
+import android.content.Context;
 import android.os.Environment;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import vaycent.customerControl.CustomerControlHelper;
 
 /**
  * Created by Vaycent on 2016/4/19.
@@ -18,56 +20,107 @@ import java.util.Date;
 
 public class LogFile {
 
-    private LogDumper mLogDumper = null;
+    private static LogFile INSTANCE = null;
+    private LogThread mLogThread = null;
+
     private int mPId;
+    private File logFileFolder= CustomerControlHelper.LOG_FILE_PATH;
+    private File logFile=new File(logFileFolder +  getFileName() + ".log");
 
 
-    public void start() {
-        mPId =android.os.Process.myPid();
-        System.out.println("mPId:"+mPId);
 
-        if (mLogDumper == null)
-            mLogDumper = new LogDumper(String.valueOf(mPId));
-
-        mLogDumper.start();
+    public static LogFile getInstance(Context context) {
+        if (INSTANCE == null) {
+            INSTANCE = new LogFile(context);
+        }
+        return INSTANCE;
     }
 
-    public void stop() {
-        if (mLogDumper != null) {
-            mLogDumper.stopLogs();
-            mLogDumper = null;
+    private LogFile(Context context) {
+        mPId = android.os.Process.myPid();
+
+        logFileFolder=checkFloderPath(context,logFileFolder);
+
+        initPath(context, logFileFolder,logFile);
+
+
+    }
+
+
+
+    private File checkFloderPath(Context context,File path){
+        boolean mHasStorage=LogBaseUtil.hasStorage();
+
+        boolean mIsEnviroment=path.toString().contains(Environment.MEDIA_MOUNTED)?true:false;
+
+        String lastPath=path.toString().substring(path.toString().lastIndexOf("/") + 1);
+
+        if(!mHasStorage&&mIsEnviroment){
+            /* TODO use to change the logfile save path when it has no storage --By Vaycent*/
+        }
+
+
+        return path;
+    }
+
+
+    public void start(){
+        startLogFileThread();
+    }
+
+    public void stop(){
+        stopLogFileThread();
+    }
+
+
+    private void startLogFileThread() {
+
+        if (mLogThread == null)
+            mLogThread = new LogThread(String.valueOf(mPId));
+
+        mLogThread.start();
+    }
+
+    private void stopLogFileThread() {
+        if (mLogThread != null) {
+            mLogThread.stopLogs();
+            mLogThread = null;
         }
     }
 
-    private class LogDumper extends Thread {
+
+
+    private void initPath(Context context,File folderPath,File filePath) {
+        if (!folderPath.exists()){
+            try {
+                folderPath.mkdir();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if(!filePath.exists()){
+            try {
+                filePath.createNewFile();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private class LogThread extends Thread {
+        private String mPID;
+
+        private boolean mRunning = true;
 
         private Process logcatProc;
         private BufferedReader mReader = null;
-        private boolean mRunning = true;
+
         String cmds = null;
-        private String mPID;
-        private FileOutputStream out = null;
-
-        private File logFloderFile= new File(Environment.getExternalStorageDirectory().getPath() + "/TestLog");
-        private File logFile;
-
-        public LogDumper(String pid) {
-            mPID = pid;
-
-            logFile=new File(logFloderFile + "/TestLog"+  getFileName() + ".log");
-
-            if(!logFloderFile.exists()){
-                logFloderFile.mkdir();
-            }
-            if (!logFile.exists()) {
-                try {
-                    logFile.createNewFile();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
 
 
+        private LogThread(String pid) {
+
+            mPID=pid;
 
             /**
              *
@@ -82,8 +135,8 @@ public class LogFile {
             // cmds = "logcat -s way";//打印标签过滤信息
 //            cmds = "logcat *:e *:i | grep \"(" + mPID + ")\"";
 
-            cmds = "logcat *:v *:i | grep \"(" + mPID + ")\" -s UseHere_01" ;
-            System.out.println("cmds:"+cmds);
+            cmds = "logcat *:v | grep \"(" + mPId + ")\"" ;
+
         }
 
         public void stopLogs() {
@@ -145,14 +198,7 @@ public class LogFile {
                         e.printStackTrace();
                     }
                 }
-                if (out != null) {
-                    try {
-                        out.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    out = null;
-                }
+
 
             }
 
@@ -163,16 +209,16 @@ public class LogFile {
 
 
 
-    public static String getFileName() {
+    private static String getFileName() {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String date = format.format(new Date(System.currentTimeMillis()));
-        return date;// 2012年10月03日 23:41:31
+        return date;
     }
 
-    public static String getDateEN() {
+    private static String getDateEN() {
         SimpleDateFormat format1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String date1 = format1.format(new Date(System.currentTimeMillis()));
-        return date1;// 2012-10-03 23:41:31
+        return date1;
     }
 
 

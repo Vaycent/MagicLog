@@ -1,11 +1,12 @@
 package vaycent.magicLog;
 
+import android.os.Environment;
 import android.util.Log;
 
 /**
  * Created by Vaycent on 2016/4/15.
  */
-public class LogUtil {
+public class LogBaseUtil {
     public final static int TABLE_TOP=0;
     public final static int TABLE_BOTTOM=1;
 
@@ -15,9 +16,19 @@ public class LogUtil {
         return false;
     }
 
+    public static boolean hasStorage(){
+        if(Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState())
+                || !Environment.isExternalStorageRemovable())
+            return true;
+        return  false;
+    }
+
+
+
+
 
     public static void printTable(int tableFram,String[] stackTraceMessages,String xml) {
-        String[] tableElements=initTable(tableFram,stackTraceMessages, xml);
+        String[] tableElements = initTable(tableFram, stackTraceMessages, xml);
 
         Log.v(tableElements[0], tableElements[1]);
     }
@@ -35,6 +46,8 @@ public class LogUtil {
         String[] tableElements=new String[]{tagMethod, framLine};
         return tableElements;
     }
+
+
 
 
 

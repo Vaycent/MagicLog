@@ -17,11 +17,11 @@ public class JSonLog {
     }
 
     private static void initTableLog(String[] stackTraceMessages,String xml){
-        vaycent.magicLog.LogUtil.printTable(vaycent.magicLog.LogUtil.TABLE_TOP, stackTraceMessages, xml);
+        LogBaseUtil.printTable(LogBaseUtil.TABLE_TOP, stackTraceMessages, xml);
 
         printJSonText(stackTraceMessages, xml);
 
-        vaycent.magicLog.LogUtil.printTable(vaycent.magicLog.LogUtil.TABLE_BOTTOM, stackTraceMessages, xml);
+        LogBaseUtil.printTable(LogBaseUtil.TABLE_BOTTOM, stackTraceMessages, xml);
     }
 
     private static void printJSonText(String[] stackTraceMessages,String xmlContext){
@@ -42,7 +42,7 @@ public class JSonLog {
         return outputFormat;
     }
 
-    //TODO 暂时未想好这里怎么写
+    //TODO Have no idea, how to write now --By Vaycnet
     private static String formatJSonBody(String formatXml,String xmlContext) {
         try {
             String outputFormat=formatXml;

@@ -24,11 +24,11 @@ public class XmlLog {
     }
 
     private static void initTableLog(String[] stackTraceMessages,String xml){
-        vaycent.magicLog.LogUtil.printTable(vaycent.magicLog.LogUtil.TABLE_TOP, stackTraceMessages, xml);
+        LogBaseUtil.printTable(LogBaseUtil.TABLE_TOP, stackTraceMessages, xml);
 
         printXmlText(stackTraceMessages, xml);
 
-        vaycent.magicLog.LogUtil.printTable(vaycent.magicLog.LogUtil.TABLE_BOTTOM, stackTraceMessages, xml);
+        LogBaseUtil.printTable(LogBaseUtil.TABLE_BOTTOM, stackTraceMessages, xml);
     }
 
     private static void printXmlText(String[] stackTraceMessages,String xmlContext){
