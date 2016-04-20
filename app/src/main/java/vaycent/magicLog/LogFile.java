@@ -178,7 +178,8 @@ public class LogFile {
         String mCommand="logcat *:";
         mCommand+=CustomerControlHelper.LOGFILE_FILTER_PRIORITY;
         mCommand+=" | grep \"("+mPID+")\"";
-        mCommand+=" -s "+CustomerControlHelper.LOGFILE_FILTER_TAG;
+        if(!CustomerControlHelper.LOGFILE_FILTER_TAG.equals(""))
+            mCommand+=" -s "+CustomerControlHelper.LOGFILE_FILTER_TAG;
 
 //        System.out.println("mCommand:"+mCommand);
 
