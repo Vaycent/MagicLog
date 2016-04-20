@@ -26,18 +26,11 @@ public class UseHere_02 extends AppCompatActivity {
         mlog.i("Test mlog i Hello World!");
         mlog.w("Test mlog w Hello World!");
         mlog.e("Test mlog e Hello World!");
-    }
-
-    @Override
-    protected  void onResume(){
-
-
 
         mlog.xml(XML);
 
         mlog.json(JSON);
-
-
-        super.onResume();
     }
+
+
 }

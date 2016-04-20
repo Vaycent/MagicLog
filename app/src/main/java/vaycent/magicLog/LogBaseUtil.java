@@ -23,10 +23,6 @@ public class LogBaseUtil {
         return  false;
     }
 
-
-
-
-
     public static void printTable(int tableFram,String[] stackTraceMessages,String xml) {
         String[] tableElements = initTable(tableFram, stackTraceMessages, xml);
 
@@ -38,9 +34,9 @@ public class LogBaseUtil {
         String framLine="";
 
         if(tableFram==TABLE_TOP){
-            framLine="╔═════════════════════════════════════════════════════════════════════════════════════════════════";
+            framLine="╔═══════════════════════════════════════════════════════════════════════════════════════";
         }else if(tableFram==TABLE_BOTTOM){
-            framLine="╚═════════════════════════════════════════════════════════════════════════════════════════════════";
+            framLine="╚═══════════════════════════════════════════════════════════════════════════════════════";
         }
 
         String[] tableElements=new String[]{tagMethod, framLine};
