@@ -33,7 +33,6 @@ public class JSonLog {
 
         outputXml=formatJSonBody(outputXml,xmlContext);
 
-
         Log.v(tagMethod, outputXml);
     }
 
@@ -44,13 +43,9 @@ public class JSonLog {
 
     //TODO Have no idea, how to write now --By Vaycnet
     private static String formatJSonBody(String formatXml,String xmlContext) {
-        try {
-            String outputFormat=formatXml;
+        String message;
 
-            return outputFormat;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return formatXml;
-        }
+//
+        return "";
     }
 }

@@ -35,11 +35,14 @@ public class mlog {
         chooseLogType(TextLog.ERROR,stackTraceMessages,message);
     }
 
+
+    //TODO We can overLoad more xml function here
     public static void xml(String xml){
         intStackTraceMessages();
         chooseLogType(XmlLog.XML,stackTraceMessages,xml);
     }
 
+    //TODO We can overLoad more json function here
     public static void json(String json){
         intStackTraceMessages();
         chooseLogType(JSonLog.JSON,stackTraceMessages,json);

@@ -131,6 +131,9 @@ public class LogFile {
 
         @Override
         public void run() {
+            //Reduce More Resources
+            android.os.Process.setThreadPriority(android.os.Process.THREAD_PRIORITY_BACKGROUND);
+
             initNewAppDivideLine(logFile);
 
             printLog(mPID,logCommand,printLogIsRunning);
