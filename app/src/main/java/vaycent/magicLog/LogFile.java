@@ -58,8 +58,9 @@ public class LogFile {
 
         String lastPath=path.toString().substring(path.toString().lastIndexOf("/") + 1);
 
-        if(!mHasStorage&&mIsEnviroment){
-            /* TODO use to change the logfile save path when it has no storage --By Vaycent*/
+        if(!mHasStorage&&mIsEnviroment){ //!mHasStorage&&mIsEnviroment
+            path = new File(context.getFilesDir().getAbsolutePath()+"/"+lastPath);
+            logFile=new File(path +"/"+  getFileName() + ".log");
         }
 
 
