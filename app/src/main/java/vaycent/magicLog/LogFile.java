@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import vaycent.customerControl.CustomerControlHelper;
+import vaycent.customerControl.customerControlHelper;
 
 /**
  * Created by Vaycent on 2016/4/19.
@@ -27,7 +27,7 @@ public class LogFile {
     private LogThread mLogThread = null;
 
     private int mPId;
-    private File logFileFolder= CustomerControlHelper.LOG_FILE_PATH;
+    private File logFileFolder= customerControlHelper.LOG_FILE_PATH;
     private File logFile=new File(logFileFolder +"/"+  getFileName() + ".log");
 
 
@@ -180,10 +180,10 @@ public class LogFile {
         //use | to divide the parameter
 
         String mCommand="logcat *:";
-        mCommand+=CustomerControlHelper.LOGFILE_FILTER_PRIORITY;
+        mCommand+= customerControlHelper.LOGFILE_FILTER_PRIORITY;
         mCommand+=" | grep \"("+mPID+")\"";
-        if(!CustomerControlHelper.LOGFILE_FILTER_TAG.equals(""))
-            mCommand+=" -s "+CustomerControlHelper.LOGFILE_FILTER_TAG;
+        if(!customerControlHelper.LOGFILE_FILTER_TAG.equals(""))
+            mCommand+=" -s "+ customerControlHelper.LOGFILE_FILTER_TAG;
 
 //        System.out.println("mCommand:"+mCommand);
 
