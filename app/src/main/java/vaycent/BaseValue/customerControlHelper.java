@@ -1,4 +1,4 @@
-package vaycent.customerControl;
+package vaycent.BaseValue;
 
 import android.os.Environment;
 
@@ -9,7 +9,6 @@ import java.io.File;
  */
 public class customerControlHelper {
     public final static int PRINT_LOG_LEVEL=-10;
-
     public final static File LOG_FILE_PATH=new File(Environment.getExternalStorageDirectory().getPath() + "/TestLog");
     public final static String LOGFILE_FILTER_PRIORITY="i"; //v,d,i,w,e,s
     public final static String LOGFILE_FILTER_TAG="Use_Here_02"; // ""for do not filter the tag

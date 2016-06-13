@@ -16,7 +16,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="vaycent.customerControl.UseHere_01">
+        <activity android:name="vaycent.BaseValue.UseHere_01">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,7 +27,7 @@
 
 
         <activity
-            android:name="vaycent.customerControl.UseHere_02"
+            android:name="vaycent.BaseValue.UseHere_02"
             android:label="@string/app_name"
             android:theme="@style/AppTheme"
              />

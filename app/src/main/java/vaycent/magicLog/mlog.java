@@ -1,6 +1,6 @@
 package vaycent.magicLog;
 
-import vaycent.customerControl.customerControlHelper;
+import vaycent.BaseValue.customerControlHelper;
 
 /**
  * Created by Vaycent on 2016/4/14.

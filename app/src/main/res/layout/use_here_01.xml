@@ -7,7 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="vaycent.customerControl.UseHere_01">
+    tools:context="vaycent.BaseValue.UseHere_01">
 
     <TextView
         android:layout_width="wrap_content"
