@@ -1,4 +1,4 @@
-package vaycent.BaseValue;
+package vaycent.magicLog;
 
 import android.os.Environment;
 

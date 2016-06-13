@@ -12,8 +12,6 @@ import java.io.InputStreamReader;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import vaycent.BaseValue.customerControlHelper;
-
 /**
  * Created by Vaycent on 2016/4/19.
  *

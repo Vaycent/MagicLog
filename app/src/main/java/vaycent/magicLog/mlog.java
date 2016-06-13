@@ -1,7 +1,5 @@
 package vaycent.magicLog;
 
-import vaycent.BaseValue.customerControlHelper;
-
 /**
  * Created by Vaycent on 2016/4/14.
  */
