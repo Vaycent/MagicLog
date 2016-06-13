@@ -14,7 +14,7 @@ public class TextLog {
 
     public static void initTextLog(int logType,String[] stackTraceMessages,String msg){
         String tagMethod=stackTraceMessages[0];
-        String message=stackTraceMessages[1]+msg;
+        String message=stackTraceMessages[1]+", "+msg;
 
         textSystemLog(logType, tagMethod, message);
     }
