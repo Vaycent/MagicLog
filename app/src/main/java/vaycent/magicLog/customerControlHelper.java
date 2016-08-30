@@ -14,21 +14,7 @@ public class customerControlHelper {
     public static String LOGFILE_FILTER_TAG="Use_Here_02"; // ""for do not filter the tag
 
 
-    public static void setPrintLogLevel(int level){
-        PRINT_LOG_LEVEL=level;
-    }
 
-    public static void setLogFilePath(String path){
-        LOG_FILE_PATH=new File(path);
-    }
-
-    public static void setLogfileFilterPriority(String priority){
-        LOGFILE_FILTER_PRIORITY= priority;
-    }
-
-    public static void setLogfileFilterTag(String tag){
-        LOGFILE_FILTER_TAG= tag;
-    }
 
 
 

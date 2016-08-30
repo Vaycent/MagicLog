@@ -1,5 +1,7 @@
 package vaycent.magicLog;
 
+import java.io.File;
+
 /**
  * Created by Vaycent on 2016/4/14.
  */
@@ -7,6 +9,30 @@ public class mlog {
     private final static int PRINT_LOG_LEVEL= customerControlHelper.PRINT_LOG_LEVEL;
 
     private static String[] stackTraceMessages;
+
+
+
+    public static void setPrintLogLevel(int level){
+        customerControlHelper.PRINT_LOG_LEVEL=level;
+    }
+
+    public static void setLogFilePath(String path){
+        customerControlHelper.LOG_FILE_PATH=new File(path);
+    }
+
+    public static void setLogfileFilterPriority(String priority){
+        customerControlHelper.LOGFILE_FILTER_PRIORITY= priority;
+    }
+
+    public static void setLogfileFilterTag(String tag){
+        customerControlHelper.LOGFILE_FILTER_TAG= tag;
+    }
+
+
+
+
+
+
 
     public static void v(String message){
         intStackTraceMessages();
