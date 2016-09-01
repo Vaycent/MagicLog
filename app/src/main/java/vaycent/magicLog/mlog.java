@@ -12,19 +12,19 @@ public class mlog {
 
 
 
-    public static void setPrintLogLevel(int level){
+    public void setPrintLogLevel(int level){
         customerControlHelper.PRINT_LOG_LEVEL=level;
     }
 
-    public static void setLogFilePath(String path){
+    public void setLogFilePath(String path){
         customerControlHelper.LOG_FILE_PATH=new File(path);
     }
 
-    public static void setLogfileFilterPriority(String priority){
+    public void setLogfileFilterPriority(String priority){
         customerControlHelper.LOGFILE_FILTER_PRIORITY= priority;
     }
 
-    public static void setLogfileFilterTag(String tag){
+    public void setLogfileFilterTag(String tag){
         customerControlHelper.LOGFILE_FILTER_TAG= tag;
     }
 
