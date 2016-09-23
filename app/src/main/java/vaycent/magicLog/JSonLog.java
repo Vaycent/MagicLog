@@ -40,7 +40,13 @@ public class JSonLog {
 
         outputXml=formatJSonHeader(outputXml, messageHelper);
 
+
+        System.out.println("test1:"+outputXml);
+
         outputXml=formatJSonBody(outputXml,xmlContext);
+
+        System.out.println("test2:"+outputXml);
+
 
         Log.v(tagMethod, outputXml);
     }
@@ -63,7 +69,9 @@ public class JSonLog {
                 InsertFrame= jsonArray.toString(JSON_INDENT);
             }
 
-            outputFormat+=InsertFrame;
+            System.out.println("test3:"+InsertFrame);
+
+            outputFormat=outputFormat+InsertFrame;
             return outputFormat;
         } catch (JSONException e) {
             return formatXml;
