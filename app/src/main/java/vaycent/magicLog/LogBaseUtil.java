@@ -34,9 +34,9 @@ public class LogBaseUtil {
         String framLine="";
 
         if(tableFram==TABLE_TOP){
-            framLine="\n╔═════════════════════════════════════════════════════════════════════";
+            framLine="╔═════════════════════════════════════════════════════════════════════";
         }else if(tableFram==TABLE_BOTTOM){
-            framLine="╚═════════════════════════════════════════════════════════════════════\n";
+            framLine="╚═════════════════════════════════════════════════════════════════════";
         }
 
         String[] tableElements=new String[]{tagMethod, framLine};

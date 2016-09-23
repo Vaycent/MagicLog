@@ -2,11 +2,20 @@ package vaycent.magicLog;
 
 import android.util.Log;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 /**
  * Created by Vaycent on 2016/4/15.
  */
 public class JSonLog {
     public final static int JSON=-2;
+
+    /**
+     * It is used for json pretty print
+     */
+    private static final int JSON_INDENT = 2;
 
     public void JSonLog(){
 
@@ -41,11 +50,23 @@ public class JSonLog {
         return outputFormat;
     }
 
-    //TODO Have no idea, how to write now --By Vaycnet
     private static String formatJSonBody(String formatXml,String xmlContext) {
-        String message;
+        String outputFormat=formatXml;
+        String InsertFrame="";
+        try {
+            xmlContext = xmlContext.trim();
+            if (xmlContext.startsWith("{")) {
+                JSONObject jsonObject = new JSONObject(xmlContext);
+                InsertFrame = jsonObject.toString(JSON_INDENT);
+            } else if (xmlContext.startsWith("[")) {
+                JSONArray jsonArray = new JSONArray(xmlContext);
+                InsertFrame= jsonArray.toString(JSON_INDENT);
+            }
 
-//
-        return "";
+            outputFormat+=InsertFrame;
+            return outputFormat;
+        } catch (JSONException e) {
+            return formatXml;
+        }
     }
 }

@@ -19,6 +19,8 @@ public class XmlLog {
     public final static int XML=-1;
 
 
+
+
     public static void initXmlLog(String[] stackTraceMessages,String xml){
         initTableLog(stackTraceMessages,xml);
     }
