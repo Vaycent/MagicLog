@@ -39,14 +39,8 @@ public class JSonLog {
         String messageHelper=stackTraceMessages[1];
 
         outputXml=formatJSonHeader(outputXml, messageHelper);
-
-
-        System.out.println("test1:"+outputXml);
-
+        
         outputXml=formatJSonBody(outputXml,xmlContext);
-
-        System.out.println("test2:"+outputXml);
-
 
         Log.v(tagMethod, outputXml);
     }
@@ -69,12 +63,24 @@ public class JSonLog {
                 InsertFrame= jsonArray.toString(JSON_INDENT);
             }
 
-            System.out.println("test3:"+InsertFrame);
-
+            InsertFrame=insertVerticalFrame(InsertFrame);
             outputFormat=outputFormat+InsertFrame;
             return outputFormat;
         } catch (JSONException e) {
             return formatXml;
         }
+    }
+
+
+
+    private static String insertVerticalFrame(String inputXml){
+        String outputXml="";
+        String[] lines = inputXml.split(System.getProperty("line.separator"));
+        for(int i=0;i<lines.length;i++){
+            lines[i]="║ "+lines[i]+"\n";
+            outputXml+=lines[i];
+        }
+
+        return outputXml;
     }
 }
