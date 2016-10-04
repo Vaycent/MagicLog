@@ -18,6 +18,22 @@ dependencies {
 ```
 First, import this dependence
 
+```java
+setPrintLogLevel(int level) 
+setLogFilePath(String path)
+setLogfileFilterPriority(String priority)
+setLogfileFilterTag(String tag)
+
+
+mlog.v
+mlog.d
+mlog.i
+mlog.w
+mlog.e
+mlog.xml
+mlog.json
+```
+
 
 
 ## LICENSE
