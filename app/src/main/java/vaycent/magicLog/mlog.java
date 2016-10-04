@@ -6,7 +6,7 @@ import java.io.File;
  * Created by Vaycent on 2016/4/14.
  */
 public class mlog {
-    private final static int PRINT_LOG_LEVEL= customerControlHelper.PRINT_LOG_LEVEL;
+    private static int PRINT_LOG_LEVEL= customerControlHelper.PRINT_LOG_LEVEL;
 
     private static String[] stackTraceMessages;
 
@@ -27,10 +27,6 @@ public class mlog {
     public void setLogfileFilterTag(String tag){
         customerControlHelper.LOGFILE_FILTER_TAG= tag;
     }
-
-
-
-
 
 
 
@@ -59,27 +55,21 @@ public class mlog {
         chooseLogType(TextLog.ERROR,stackTraceMessages,message);
     }
 
-
-    //TODO We can overLoad more xml function here
     public static void xml(String xml){
         intStackTraceMessages();
         chooseLogType(XmlLog.XML,stackTraceMessages,xml);
     }
 
-    //TODO We can overLoad more json function here
     public static void json(String json){
         intStackTraceMessages();
         chooseLogType(JSonLog.JSON,stackTraceMessages,json);
     }
     
 
-    
 
     private static void intStackTraceMessages(){
         stackTraceMessages = StackTraceMessages.getTagInfo();
     }
-
-
 
     private static void chooseLogType(int logType,String[] stackTraceMessages,String message){
         if(logType<PRINT_LOG_LEVEL){
