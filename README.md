@@ -1,6 +1,23 @@
 # MagicLog
 
-This is the 
+This is the logcat tool for Android in debug mode
+
+## How to use
+```gradle
+allprojects {
+    repositories {
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+dependencies {
+    compile 'com.github.Vaycent:MagicLog:1.1.7'
+}
+
+```
+First, import this dependence
+
 
 
 ## LICENSE
