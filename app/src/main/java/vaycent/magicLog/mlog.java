@@ -11,19 +11,37 @@ public class mlog {
     private static String[] stackTraceMessages;
 
 
-
+    /**
+     * To choose the log level to print out in logcat <p>
+     * level: v,d,i,w,e,xml,json, from 4 to -2 <br>
+     * @param level It will print out the log which above this level
+     */
     public void setPrintLogLevel(int level){
         customerControlHelper.PRINT_LOG_LEVEL=level;
     }
 
+    /**
+     * Setup the log file in this path <p>
+     * Initalise an empty file if no this file in the system <br>
+     * @param path The log file path
+     */
     public void setLogFilePath(String path){
         customerControlHelper.LOG_FILE_PATH=new File(path);
     }
 
-    public void setLogfileFilterPriority(String priority){
-        customerControlHelper.LOGFILE_FILTER_PRIORITY= priority;
+    /**
+     * To choose the log level to show in log file <p>
+     * You can choose v,d,i,w,e, and "" means all <br>
+     * @param level String to choose---v,d,i,w,e,""
+     */
+    public void setLogfileFilterPriority(String level){
+        customerControlHelper.LOGFILE_FILTER_PRIORITY= level;
     }
 
+    /**
+     * To choose the logcat tag to show in log file <p>
+     * @param tag Tag filter
+     */
     public void setLogfileFilterTag(String tag){
         customerControlHelper.LOGFILE_FILTER_TAG= tag;
     }
