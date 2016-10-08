@@ -2,7 +2,6 @@
 
 This is the logcat tool for Android in debug mode
 
-## Feature
 
 ## How to use
 
@@ -17,7 +16,7 @@ allprojects {
 }
 
 dependencies {
-    compile 'com.github.Vaycent:MagicLog:1.1.7'
+    compile 'com.github.Vaycent:MagicLog:1.2.0'
 }
 
 ```
