@@ -13,7 +13,7 @@ public class customerControlHelper {
     public static String LOGFILE_FILTER_PRIORITY="v"; //v,d,i,w,e,s
     public static String LOGFILE_FILTER_TAG=""; // ""for do not filter the tag
 
-    
+
 
 
 

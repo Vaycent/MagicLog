@@ -23,10 +23,10 @@ public class mlog {
     /**
      * Setup the log file in this path <p>
      * Initalise an empty file if no this file in the system <br>
-     * @param path The log file path
+     * @param file The log file path
      */
-    public static void setLogFilePath(String path){
-        customerControlHelper.LOG_FILE_PATH=new File(path);
+    public static void setLogFilePath(File file){
+        customerControlHelper.LOG_FILE_PATH=file;
     }
 
     /**
