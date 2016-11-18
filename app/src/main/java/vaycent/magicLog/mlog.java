@@ -1,5 +1,7 @@
 package vaycent.magicLog;
 
+import android.content.Context;
+
 import java.io.File;
 
 /**
@@ -44,6 +46,22 @@ public class mlog {
      */
     public static void setLogfileFilterTag(String tag){
         customerControlHelper.LOGFILE_FILTER_TAG= tag;
+    }
+
+    public void StartWriteLog(Context context){
+        try{
+            LogFile.getInstance(context).start();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void StopWriteLog(Context context){
+        try{
+            LogFile.getInstance(context).stop();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
