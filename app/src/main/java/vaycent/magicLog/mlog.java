@@ -48,7 +48,7 @@ public class mlog {
         customerControlHelper.LOGFILE_FILTER_TAG= tag;
     }
 
-    public void StartWriteLog(Context context){
+    public static void StartWriteLog(Context context){
         try{
             LogFile.getInstance(context).start();
         }catch (Exception e){
@@ -56,7 +56,7 @@ public class mlog {
         }
     }
 
-    public void StopWriteLog(Context context){
+    public static void StopWriteLog(Context context){
         try{
             LogFile.getInstance(context).stop();
         }catch (Exception e){
