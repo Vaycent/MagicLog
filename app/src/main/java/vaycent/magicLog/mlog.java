@@ -16,7 +16,7 @@ public class mlog {
      * level: v,d,i,w,e,xml,json, from 4 to -2 <br>
      * @param level It will print out the log which above this level
      */
-    public void setPrintLogLevel(int level){
+    public static void setPrintLogLevel(int level){
         customerControlHelper.PRINT_LOG_LEVEL=level;
     }
 
@@ -25,7 +25,7 @@ public class mlog {
      * Initalise an empty file if no this file in the system <br>
      * @param path The log file path
      */
-    public void setLogFilePath(String path){
+    public static void setLogFilePath(String path){
         customerControlHelper.LOG_FILE_PATH=new File(path);
     }
 
@@ -34,7 +34,7 @@ public class mlog {
      * You can choose v,d,i,w,e, and "" means all <br>
      * @param level String to choose---v,d,i,w,e,""
      */
-    public void setLogfileFilterPriority(String level){
+    public static void setLogfileFilterPriority(String level){
         customerControlHelper.LOGFILE_FILTER_PRIORITY= level;
     }
 
@@ -42,7 +42,7 @@ public class mlog {
      * To choose the logcat tag to show in log file <p>
      * @param tag Tag filter
      */
-    public void setLogfileFilterTag(String tag){
+    public static void setLogfileFilterTag(String tag){
         customerControlHelper.LOGFILE_FILTER_TAG= tag;
     }
 
