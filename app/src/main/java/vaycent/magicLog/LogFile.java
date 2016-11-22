@@ -26,7 +26,7 @@ public class LogFile {
 
     private int mPId;
     private File logFileFolder= customerControlHelper.LOG_FILE_PATH;
-    private File logFile=new File(logFileFolder +"/"+  getFileName() + ".log");
+    private File logFile=new File(logFileFolder +"/"+  getFileName() + ".txt");
 
 
 
