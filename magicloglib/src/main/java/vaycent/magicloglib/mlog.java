@@ -42,7 +42,8 @@ public class mlog {
                 +",logFilterPriority="+logFilterPriority+",logFilterTag="+logFilterTag+"]";
     }
 
-    public static void StartWriteLog(Context context){
+    /* I have stopped this log file 20170815 */
+    private static void StartWriteLog(Context context){
         try{
             LogFile.getInstance(context).start();
         }catch (Exception e){
@@ -50,7 +51,8 @@ public class mlog {
         }
     }
 
-    public static void StopWriteLog(Context context){
+    /* I have stopped this log file 20170815 */
+    private static void StopWriteLog(Context context){
         try{
             LogFile.getInstance(context).stop();
         }catch (Exception e){
@@ -151,7 +153,6 @@ public class mlog {
         }
     }
 
-
     private static void intStackTraceMessages(){
         stackTraceMessages = StackTraceMessages.getTagInfo();
     }
@@ -174,11 +175,6 @@ public class mlog {
 
         }
     }
-
-
-
-
-
 
     public static class Builder{
         private boolean errorShow;
