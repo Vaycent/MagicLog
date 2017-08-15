@@ -17,19 +17,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mlog builder = new mlog.Builder()
+        new mlog.Builder()
                 .error(true)
                 .warning(true)
-                .information(true)
+                .information(false)
                 .debug(true)
                 .verbose(true)
                 .xml(true)
                 .json(true)
+                .printStackTrace(true)
                 .logFilePath(Environment.getExternalStorageDirectory().getPath() + "/MagicLog_File")
                 .logFilterPriority("v")
                 .logFilterTag("")
                 .build();
-        System.out.println(builder.toString());;
+//        System.out.println(builder.toString());;
 
 
         mlog.e("11","error");
@@ -39,6 +40,12 @@ public class MainActivity extends AppCompatActivity {
         mlog.v("verbose");
         mlog.xml("55",xmlStr);
         mlog.json(jsonStr);
+
+        try{
+            Integer.parseInt("abc");
+        }catch (Exception e){
+            mlog.printStackTrace(e);
+        }
 
     }
 }

@@ -15,6 +15,7 @@ public class mlog {
     private static boolean verboseShow = true;
     private static boolean xmlShow = true;
     private static boolean jsonShow = true;
+    private static boolean printStackTraceShow = true;
     public static String logFilePath = Environment.getExternalStorageDirectory().getPath() + "/MagicLog_File";
     public static String logFilterPriority = "v";
     public static String logFilterTag="";
@@ -29,6 +30,7 @@ public class mlog {
         this.verboseShow=builder.verboseShow;
         this.xmlShow=builder.xmlShow;
         this.jsonShow=builder.jsonShow;
+        this.printStackTraceShow=builder.printStackTraceShow;
         this.logFilePath=builder.logFilePath;
         this.logFilterPriority=builder.logFilterPriority;
         this.logFilterTag=builder.logFilterTag;
@@ -38,7 +40,7 @@ public class mlog {
     public String toString(){
         return "MlogObj [error ="+errorShow+",warning="+warningShow+",information="+informationShow+
                 ",debug="+debugShow+",verbose="+verboseShow+",xml="+xmlShow+",json="+jsonShow+
-                ",logFilePath="+logFilePath
+                ",printStackTraceShow="+printStackTraceShow+",logFilePath="+logFilePath
                 +",logFilterPriority="+logFilterPriority+",logFilterTag="+logFilterTag+"]";
     }
 
@@ -153,6 +155,19 @@ public class mlog {
         }
     }
 
+    public static void printStackTrace(Throwable exception){
+        if(printStackTraceShow){
+            exception.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+
+
     private static void intStackTraceMessages(){
         stackTraceMessages = StackTraceMessages.getTagInfo();
     }
@@ -184,6 +199,7 @@ public class mlog {
         private boolean verboseShow;
         private boolean xmlShow;
         private boolean jsonShow;
+        private boolean printStackTraceShow;
 
         private String logFilePath;
         private String logFilterPriority;
@@ -218,6 +234,10 @@ public class mlog {
         }
         public Builder json(boolean json){
             this.jsonShow=json;
+            return this;
+        }
+        public Builder printStackTrace(boolean printStackTrace){
+            this.printStackTraceShow=printStackTrace;
             return this;
         }
 
