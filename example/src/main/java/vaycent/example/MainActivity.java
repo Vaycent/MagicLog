@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        new mlog.Builder()
+        mlog builder = new mlog.Builder()
                 .error(true)
                 .warning(true)
                 .information(false)
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
                 .logFilterPriority("v")
                 .logFilterTag("")
                 .build();
-//        System.out.println(builder.toString());;
+        System.out.println(builder.toString());;
 
 
         mlog.e("11","error");

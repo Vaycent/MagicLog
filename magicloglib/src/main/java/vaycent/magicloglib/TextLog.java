@@ -11,16 +11,23 @@ public class TextLog {
     public final static int INFORMATION=2;
     public final static int WARNING=3;
     public final static int ERROR=4;
+    private final static int MAXLEN = 5000;
 
     public static void initTextLog(int logType,String[] stackTraceMessages,String tag, String msg){
+
         String tagMethod;
         if(null!=tag&&!"".equals(tag))
             tagMethod = tag;
         else
             tagMethod=stackTraceMessages[0];
-        String message=stackTraceMessages[1]+", "+msg;
 
-        textSystemLog(logType, tagMethod, message);
+        if(MAXLEN<msg.length()){
+            initTextLog(logType, stackTraceMessages,tag, msg.substring(0,MAXLEN));
+            initTextLog(logType, stackTraceMessages,tag, msg.substring(MAXLEN));
+        }else{
+            String message=stackTraceMessages[1]+", "+msg;
+            textSystemLog(logType, tagMethod, message);
+        }
     }
 
     private static void textSystemLog(int logType,String tagInfo,String message){

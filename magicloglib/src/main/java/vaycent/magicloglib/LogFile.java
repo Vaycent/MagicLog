@@ -43,8 +43,6 @@ public class LogFile {
         logFileFolder=checkFloderPath(context,logFileFolder);
 
         initPath(context, logFileFolder,logFile);
-
-
     }
 
 
@@ -60,7 +58,6 @@ public class LogFile {
             path = new File(context.getFilesDir().getAbsolutePath()+"/"+lastPath);
             logFile=new File(path +"/"+  getFileName() + ".log");
         }
-
 
         return path;
     }

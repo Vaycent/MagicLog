@@ -1,7 +1,5 @@
 package vaycent.magicloglib;
 
-import android.util.Log;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,21 +31,25 @@ public class JSonLog {
         LogBaseUtil.printTable(LogBaseUtil.TABLE_BOTTOM, stackTraceMessages, tag,xml);
     }
 
-    private static void printJSonText(String[] stackTraceMessages,String tag,String xmlContext){
-        String outputXml="";
+    private static void printJSonText(String[] stackTraceMessages,String tag,String jsonContext){
+        String outputJson="";
 
-        String tagMethod;
-        if(null!=tag&&!"".equals(tag))
-            tagMethod = tag;
-        else
-            tagMethod=stackTraceMessages[0];
+//        String tagMethod;
+//        if(null!=tag&&!"".equals(tag))
+//            tagMethod = tag;
+//        else
+//            tagMethod=stackTraceMessages[0];
         String messageHelper=stackTraceMessages[1];
 
-        outputXml=formatJSonHeader(outputXml, messageHelper);
-        
-        outputXml=formatJSonBody(outputXml,xmlContext);
+        outputJson=formatJSonHeader(outputJson, messageHelper);
 
-        Log.v(tagMethod, outputXml);
+        outputJson=formatJSonBody(outputJson,jsonContext);
+
+
+        TextLog.initTextLog(TextLog.VERBOSE, stackTraceMessages, tag, outputJson);
+
+
+//        Log.v(tagMethod, outputXml);
     }
 
     private static String formatJSonHeader(String formatXml,String inputMessageHelper){

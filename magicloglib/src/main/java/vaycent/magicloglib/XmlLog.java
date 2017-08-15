@@ -1,7 +1,5 @@
 package vaycent.magicloglib;
 
-import android.util.Log;
-
 import java.io.StringReader;
 import java.io.StringWriter;
 
@@ -34,11 +32,11 @@ public class XmlLog {
     private static void printXmlText(String[] stackTraceMessages,String tag, String xmlContext){
         String outputXml="";
 
-        String tagMethod;
-        if(null!=tag&&!"".equals(tag))
-            tagMethod = tag;
-        else
-            tagMethod=stackTraceMessages[0];
+//        String tagMethod;
+//        if(null!=tag&&!"".equals(tag))
+//            tagMethod = tag;
+//        else
+//            tagMethod=stackTraceMessages[0];
         String messageHelper=stackTraceMessages[1];
 
         outputXml=formatXmlHeader(outputXml, messageHelper);
@@ -46,7 +44,11 @@ public class XmlLog {
         outputXml=formatXmlBody(outputXml,xmlContext);
 
 
-        Log.v(tagMethod, outputXml);
+
+        TextLog.initTextLog(TextLog.VERBOSE, stackTraceMessages, tag, outputXml);
+
+
+//        Log.v(tagMethod, outputXml);
     }
 
     private static String formatXmlHeader(String formatXml,String inputMessageHelper){
