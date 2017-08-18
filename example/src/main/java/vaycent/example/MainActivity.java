@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
         mlog.xml("55",xmlStr);
         mlog.json(jsonStr);
 
+
         try{
             Integer.parseInt("abc");
         }catch (Exception e){
